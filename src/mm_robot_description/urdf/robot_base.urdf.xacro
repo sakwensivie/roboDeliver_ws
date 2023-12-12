@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_base">
 
+<xacro:include filename="$(find mm_robot_description)/urdf/robot_essentials.urdf.xacro" />
+
+
 <link name="link_name">
     <visual>
         <origin xyz="0 0 0" rpy="1.5707963267949 0 3.14"/>
         
         <geometry>
-            <!-- <mesh filename="package://mm_robot_description/meshes/robot_base.stl"/> -->
-            <box size="1.0 1.0 1.0" />
+            <mesh filename="package://mm_robot_description/meshes/robot_base.stl"/>
+            <!-- <box size="1.0 1.0 1.0" /> -->
             <!-- <cylinder radius="1.0" length="1.0"/> -->
         </geometry>
         <material name="LightGrey">
@@ -27,9 +30,15 @@
         <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
     </inertial> -->
 </link>
-<xacro:arg name="robot_wheel" prefix="front_left"/>
-<xacro:arg name="robot_wheel" prefix="front_right"/>
-<xacro:arg name="robot_wheel" prefix="rear_left"/>
-<xacro:arg name="robot_wheel" prefix="front_right"/>
+<xacro:robot_wheel prefix="front_left"/>
+<xacro:robot_wheel prefix="front_right"/>
+<xacro:robot_wheel prefix="rear_left"/>
+<xacro:robot_wheel prefix="front_right"/>
+
+<xacro:wheel_joint prefix="front_left" origin="0.220 0.250 0"/>
+<xacro:wheel_joint prefix="front_right" origin="0.220 -0.250 0"/>
+<xacro:wheel_joint prefix="rear_left" origin="-0.220 0.250 0"/>
+<xacro:wheel_joint prefix="rear_right" origin="-0.220 -0.250 0"/>
+
 
 </robot>
