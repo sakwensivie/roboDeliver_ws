@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_base">
   <xacro:include filename="$(find robot_description)/urdf/robot_essentials.xacro"/>
+  <xacro:include filename="$(find robot_description)/urdf/gazebo_essentials_base.xacro"/>
   
-  <link name="base_footprint">
+  <!-- <link name="base_footprint">
 
   </link>
 
@@ -11,7 +12,7 @@
     <child link="base_link"/>
     <origin xyz="0 0 135.0" rpy="0 0 0"/>
     <axis xyz="0.0 0.0 0.0"/>
-  </joint>
+  </joint> -->
 
   <link name="base_link">
     <visual>
@@ -63,5 +64,11 @@
   <xacro:base_transmission prefix="front_right"/>
   <xacro:base_transmission prefix="rear_left"/>
   <xacro:base_transmission prefix="rear_right"/>
-  
+
+  <!--Wheel friction-->
+  <xacro:wheel_friction prefix="front_left"/>
+  <xacro:wheel_friction prefix="front_right"/>
+  <xacro:wheel_friction prefix="rear_left"/>
+  <xacro:wheel_friction prefix="rear_right"/>
+
 </robot>
