@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_name">
 
   <!-- <xacro:include filename="$(find robot_description)/urdf/robot_arm_essentials.xacro" /> -->
-  <!-- <xacro:include filename="$(find robot_description)/urdf/gazebo_essentials_arm.xacro" /> -->
+  <xacro:include filename="$(find robot_description)/urdf/gazebo_essentials_arm.xacro" />
   <xacro:include filename="$(find robot_description)/urdf/robot_essentials.xacro" />
 
   <link name="base_footprint">
@@ -224,4 +224,14 @@
     originxyz="0.0 0 0.13522" originrpy="0 0 0"/>
   <xacro:arm_joint prefix="top_wrist" parent="elbow" child="top_wrist"
     originxyz="0.0 0 0.20994" originrpy="0 0 0"/>
+
+  <!-- TRANSMISSIONS -->
+
+  <xacro:arm_transmission prefix="arm_base"/>
+  <xacro:arm_transmission prefix="shoulder"/>
+  <xacro:arm_transmission prefix="bottom_wrist"/>
+  <xacro:arm_transmission prefix="elbow"/>
+  <xacro:arm_transmission prefix="top_wrist"/>
+
+
 </robot>
