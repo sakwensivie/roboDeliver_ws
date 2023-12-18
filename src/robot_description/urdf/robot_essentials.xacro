@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="robot_essentials" >
 
+<!-- ########################### ROBOT BASE ESSENTIALS-->
   <!--Wheels-->
   <xacro:macro name="robot_wheel" params="prefix">
     <link name="${prefix}_wheel">
@@ -60,5 +61,18 @@
         <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       </joint>
     </transmission>
+  </xacro:macro>
+
+  <!-- ################################ ROBOT ARM ESSENTIALS #############################-->
+
+  <xacro:macro name="arm_joint" params="prefix parent child originxyz originrpy">
+
+    <joint name="${prefix}_joint" type="continuous">
+      <axis xyz="0 1 0"/>
+      <parent link="${parent}"/>
+      <child link="${child}"/>
+      <origin rpy="${originrpy}" xyz="${originxyz}"/>
+    </joint>
+
   </xacro:macro>
 </robot>
