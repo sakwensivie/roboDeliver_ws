@@ -5,7 +5,7 @@
   <xacro:include filename="$(find robot_description)/urdf/gazebo_essentials_arm.xacro" />
   <xacro:include filename="$(find robot_description)/urdf/robot_essentials.xacro" />
 
-  <link name="base_footprint">
+  <!-- <link name="base_footprint">
 
   </link>
 
@@ -14,7 +14,9 @@
     <child link="arm_base"/>
     <origin xyz="0 0 135.0" rpy="0 0 0"/>
     <axis xyz="0.0 0.0 0.0"/>
-  </joint>
+  </joint> -->
+
+  
 
   <!-- robot arm base-->
   <link name="arm_base">
@@ -214,8 +216,12 @@
     </collision>
   </link>
 
-  <!-- JOINTS -->
+  <!-- <link name="world"/> -->
 
+
+  <!-- JOINTS -->
+  <!-- <xacro:arm_joint prefix="arm_base" parent="world" child="arm_base"
+    originxyz="0.0 0.0 0.1" originrpy="0 0 0"/> -->
   <xacro:arm_joint prefix="shoulder" parent="arm_base" child="bicep"
     originxyz="-0.05166 0.0 0.20271" originrpy="0 0 1.5708"/>
   <xacro:arm_joint prefix="bottom_wrist" parent="bicep" child="bottom_wrist"
